@@ -93,9 +93,9 @@ y_pred = label_binarize(
     predictions, classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 )
 
-macro_roc_auc_ovo = roc_auc_score(y, scores, multi_class="ovo", average="macro")
+#macro_roc_auc_ovo = roc_auc_score(y, scores, multi_class="ovo", average="macro")
 
-macro_roc_auc_ovr = roc_auc_score(y, scores, multi_class="ovr", average="macro")
+#macro_roc_auc_ovr = roc_auc_score(y, scores, multi_class="ovr", average="macro")
 
 acc = metrics.accuracy_score(y, y_pred)
 
@@ -105,12 +105,12 @@ print(
     % (network_name, metrics.classification_report(y, y_pred, digits=4)),
     file=open(args.outputs_dir+'/' + network_name + ".txt", "w"),
 )
-print(
+'''print(
     "AUROC:\t",
     macro_roc_auc_ovo,
     macro_roc_auc_ovr,
     file=open(args.outputs_dir+'/' + network_name + ".txt", "a"),
-)
+)'''
 print("Acc:\t", acc, file=open(args.outputs_dir+'/' + network_name + ".txt", "a"))
 print("\n", file=open(args.outputs_dir+'/' + network_name + ".txt", "a"))
 print(
